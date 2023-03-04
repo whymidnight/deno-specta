@@ -92,14 +92,14 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
 /// The exporter for [Javascript](https://www.javascript.com).
-#[cfg(feature = "javascript")]
-#[cfg_attr(docsrs, doc(cfg(feature = "javascript")))]
-pub mod js;
+#[cfg(feature = "runtime")]
+#[cfg_attr(docsrs, doc(cfg(feature = "runtime")))]
+pub mod runtime;
 
 /// The exporter for [TypeScript](https://www.typescriptlang.org).
-#[cfg(feature = "typescript")]
-#[cfg_attr(docsrs, doc(cfg(feature = "typescript")))]
-pub mod ts;
+#[cfg(feature = "abi")]
+#[cfg_attr(docsrs, doc(cfg(feature = "abi")))]
+pub mod abi;
 
 /// This remains for backwards compatibility. Please use [`specta::collect_types`] instead!
 #[macro_export]

@@ -1,13 +1,12 @@
 [package]
-name = "tauri-specta"
-description = "Completely typesafe Tauri commands"
+name = "deno_specta"
+description = "Rust ABI for custom Deno runtimes"
 version = "1.0.0"
-authors = ["Oscar Beaumont <oscar@otbeaumont.me>"]
+authors = ["Oscar Beaumont <oscar@otbeaumont.me>", "Dominic DiGiacomo <dominic.m.digiacomo@gmail.com"]
 edition = "2021"
+rust-version = "1.57"
 license = "MIT"
-include = ["/src", "/README.md", "/LICENCE"]
-repository = "https://github.com/oscartbeaumont/tauri-specta"
-documentation = "https://docs.rs/tauri-specta/latest/tauri-specta"
+include = ["/src", "/LICENCE"]
 keywords = ["async", "specta", "rspc", "typescript", "typesafe"]
 categories = ["web-programming", "asynchronous"]
 
@@ -18,26 +17,16 @@ rustdoc-args = ["--cfg", "docsrs"]
 
 [features]
 default = []
-javascript = []
-typescript = ["specta/typescript"]
+abi = []
+runtime = []
 
 [dependencies]
-specta = { version = "1.0.0", features = ["functions", "tauri"] }
+specta = { git = "https://github.com/whymidnight/specta.git", features = ["functions"] }
 serde = "1.0.152"
 serde_json = "1.0.93"
-tauri = "1.2.4"
 thiserror = "1.0.38"
 heck = "0.4.1"
 indoc = "2.0.0"
 
 [dev-dependencies]
 doc-comment = "0.3.3"
-
-[workspace]
-members = [
-    "example/src-tauri",
-]
-
-[patch.crates-io]
-# specta = { path = "../specta" }
-
