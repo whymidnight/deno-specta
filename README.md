@@ -10,7 +10,11 @@ This library will generate a `runtime.js` for your Deno Runtime and an `abi.ts` 
 
 ```
 [build-dependencies]
-deno_codegen = { git = "https://github.com/whymidnight/deno-specta.git", features = ["runtime"] }
+deno_specta = { git = "https://github.com/whymidnight/deno-specta.git", features = ["runtime"] }
+specta = { git = "https://github.com/whymidnight/specta.git" }
+
+[dependencies]
+deno_specta = { git = "https://github.com/whymidnight/deno-specta.git", features = ["runtime"] }
 specta = { git = "https://github.com/whymidnight/specta.git" }
 ```
 
@@ -44,7 +48,7 @@ pub async fn foo(
 #### Then in `build.rs`:
 
 ```rust
-use deno_codegen::runtime;
+use deno_specta::runtime;
 
 runtime::export(
     collect_types![foo],
